@@ -48,7 +48,7 @@ const Navbar = () => {
           className="logo"
           style={{ color: "#9fd1ff !important" }}
         >
-          <Link to="/riga-crypto">Riga Crypto</Link>
+          <Link to="/">Riga Crypto</Link>
         </Typography.Title>
         <Button
           className="menu-control-container"
@@ -61,16 +61,16 @@ const Navbar = () => {
       {activeMenu && (
         <Menu theme="dark">
           <Menu.Item icon={<HomeOutlined />}>
-            <Link to="/riga-crypto">Home</Link>
+            <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item icon={<FundOutlined />}>
-            <Link to="/riga-crypto/cryptocurrencies">Cryptocurrencies</Link>
+            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
           </Menu.Item>
           <Menu.Item icon={<MoneyCollectOutlined />}>
-            <Link to="/riga-crypto/exchanges">Exchanges</Link>
+            <Link to="/exchanges">Exchanges</Link>
           </Menu.Item>
           <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/riga-crypto/news">News</Link>
+            <Link to="/news">News</Link>
           </Menu.Item>
         </Menu>
       )}
