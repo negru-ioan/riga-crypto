@@ -27,13 +27,13 @@ const App = () => {
             style={{ color: "white", textAlign: "center" }}
           >
             Copyright © 2021
-            <Link to="/">Riga Inc.</Link> <br />
+            <Link to="/riga-crypto">Riga Inc.</Link> <br />
             All Rights Reserved.
           </Typography.Title>
           <Space>
-            <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
-            <Link to="/news">News</Link>
+            <Link to="/riga-crypto">Home</Link>
+            <Link to="/riga-crypto/exchanges">Exchanges</Link>
+            <Link to="/riga-crypto/news">News</Link>
           </Space>
         </div>
       </div>
