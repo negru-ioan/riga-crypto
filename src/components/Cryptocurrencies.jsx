@@ -25,6 +25,7 @@ const Cryptocurrencies = ({ simplified }) => {
 
   if (isFetching) return <Loader />;
 
+  console.log('cryptoList', cryptosList)
   return (
     <>
       {!simplified && (

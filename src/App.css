@@ -105,6 +105,12 @@ a:hover {
   justify-content: center !important;
 }
 
+.dodgerblue{
+  fill: dodgerblue;
+}
+.anticon-dollar-circle-outlined svg path {
+  fill: dodgerblue;
+}
 @media screen and (max-width: 1300px) {
   .main {
     margin-left: 5px;

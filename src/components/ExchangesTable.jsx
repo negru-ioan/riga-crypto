@@ -54,7 +54,7 @@ function ExchangesTable({ coinId }) {
       key: "col4",
     },
     {
-      title: "Btc_Price",
+      title: "Btc",
       dataIndex: "col5",
       key: "col5",
     },
@@ -62,7 +62,7 @@ function ExchangesTable({ coinId }) {
 
   return (
     <Col style={{ overflow: "auto", marginTop: "40px" }}>
-      <Table columns={colummns} dataSource={dataa} />;
+      <Table columns={colummns} dataSource={dataa} />
     </Col>
   );
 }

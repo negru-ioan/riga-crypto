@@ -28,7 +28,7 @@ const { Option } = Select;
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
-  const [timeperiod, setTimeperiod] = useState("7d");
+  const [timeperiod, setTimeperiod] = useState("1y");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
   const { data: coinHistory } = useGetCryptoHistoryQuery({
     coinId,
@@ -47,26 +47,32 @@ const CryptoDetails = () => {
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
+  const dogerBlue = { color: "dodgerblue" };
+
   const stats = [
     {
       title: "Price to USD",
       value: `$ ${price && price}`,
-      icon: <DollarCircleOutlined />,
+      icon: <DollarCircleOutlined style={dogerBlue} />,
     },
-    { title: "Rank", value: cryptoDetails?.rank, icon: <NumberOutlined /> },
+    {
+      title: "Rank",
+      value: cryptoDetails?.rank,
+      icon: <NumberOutlined style={dogerBlue} />,
+    },
     {
       title: "24h Volume",
       value: `$ ${
         cryptoDetails?.["24hVolume"] && millify(cryptoDetails?.["24hVolume"])
       }`,
-      icon: <ThunderboltOutlined />,
+      icon: <ThunderboltOutlined style={dogerBlue} />,
     },
     {
       title: "Market Cap",
       value: `$ ${
         cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)
       }`,
-      icon: <DollarCircleOutlined />,
+      icon: <DollarCircleOutlined style={dogerBlue} />,
     },
     {
       title: "All-time-high(daily avg.)",
@@ -74,7 +80,7 @@ const CryptoDetails = () => {
         cryptoDetails?.allTimeHigh?.price &&
         millify(cryptoDetails?.allTimeHigh?.price)
       }`,
-      icon: <TrophyOutlined />,
+      icon: <TrophyOutlined style={dogerBlue} />,
     },
   ];
 
@@ -82,12 +88,12 @@ const CryptoDetails = () => {
     {
       title: "Number Of Markets",
       value: cryptoDetails?.numberOfMarkets,
-      icon: <FundOutlined />,
+      icon: <FundOutlined style={dogerBlue} />,
     },
     {
       title: "Number Of Exchanges",
       value: cryptoDetails?.numberOfExchanges,
-      icon: <MoneyCollectOutlined />,
+      icon: <MoneyCollectOutlined style={dogerBlue} />,
     },
     {
       title: "Aprroved Supply",
@@ -96,14 +102,14 @@ const CryptoDetails = () => {
       ) : (
         <StopOutlined />
       ),
-      icon: <ExclamationCircleOutlined />,
+      icon: <ExclamationCircleOutlined style={dogerBlue} />,
     },
     {
       title: "Total Supply",
       value: `$ ${
         cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)
       }`,
-      icon: <ExclamationCircleOutlined />,
+      icon: <ExclamationCircleOutlined style={dogerBlue} />,
     },
     {
       title: "Circulating Supply",
@@ -111,7 +117,7 @@ const CryptoDetails = () => {
         cryptoDetails?.supply?.circulating &&
         millify(cryptoDetails?.supply?.circulating)
       }`,
-      icon: <ExclamationCircleOutlined />,
+      icon: <ExclamationCircleOutlined style={dogerBlue} />,
     },
   ];
 
@@ -119,23 +125,23 @@ const CryptoDetails = () => {
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
         <Col style={{ display: "flex", height: "45px" }}>
+          <Title level={2} className="coin-name">
+            {cryptoDetails?.name} ({cryptoDetails?.symbol})
+          </Title>
           <Col className="coin-detail-heading-img">
             <img
               src={cryptoDetails?.iconUrl}
               alt={cryptoDetails?.name + " image"}
             />
           </Col>
-          <Title level={2} className="coin-name">
-            {cryptoDetails?.name} ({cryptoDetails?.symbol}) Price
-          </Title>
         </Col>
-        <p>
+        <p style={{ textAlign: "center" }}>
           {cryptoDetails.name} live price in US Dollar (USD). View value
           statistics, market cap and supply.
         </p>
       </Col>
       <Select
-        defaultValue="7d"
+        defaultValue="1y"
         className="select-timeperiod"
         placeholder="Select Timeperiod"
         onChange={(value) => setTimeperiod(value)}
@@ -149,6 +155,7 @@ const CryptoDetails = () => {
         coinHistory={coinHistory}
         currentPrice={price}
         coinName={cryptoDetails?.name}
+        timeperiod={timeperiod}
       />
 
       <Col className="stats-container">

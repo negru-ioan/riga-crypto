@@ -15,7 +15,7 @@ const Homepage = () => {
   const globalStats = data?.data?.stats;
 
   if (isFetching) return <Loader />;
-
+  console.log("globalStats", globalStats, "data:", data);
   return (
     <>
       <Title level={2} className="heading">
@@ -35,7 +35,7 @@ const Homepage = () => {
           <Statistic
             title="Total Market Cap:"
             value={`$${millify(globalStats.totalMarketCap)}`}
-          />
+          /> 
         </Col>
         <Col span={12}>
           <Statistic
@@ -58,7 +58,7 @@ const Homepage = () => {
           Top 10 Cryptos In The World
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/riga-crypto/cryptocurrencies">Show more</Link>
+          <Link to="/cryptocurrencies">Show more</Link>
         </Title>
       </div>
       <Cryptocurrencies simplified />
@@ -67,7 +67,7 @@ const Homepage = () => {
           Latest Crypto News
         </Title>
         <Title level={3}>
-          <Link to="/riga-crypto/news">Show more</Link>
+          <Link to="/news">Show more</Link>
         </Title>
       </div>
       <News simplified />

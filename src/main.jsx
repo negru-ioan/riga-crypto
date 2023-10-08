@@ -22,12 +22,12 @@ import "antd/dist/antd.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/riga-crypto" element={<App />}>
+    <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
-      <Route path="/riga-crypto/exchanges" element={<Exchanges />} />
-      <Route path="/riga-crypto/cryptocurrencies" element={<Cryptocurrencies />} />
-      <Route path="/riga-crypto/crypto/:coinId" element={<CryptoDetails />} />
-      <Route path="/riga-crypto/news" element={<News />} />
+      <Route path="/exchanges" element={<Exchanges />} />
+      <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+      <Route path="/crypto/:coinId" element={<CryptoDetails />} />
+      <Route path="/news" element={<News />} />
     </Route>
   )
 );
